@@ -1,0 +1,67 @@
+<div class='container' style='background-color: lightblue; border: 1px solid black;font-family: "Rubik", sans-serif; padding: 5px;'>
+    <div class='row'>
+        <div class='col'>
+            <div style='position: relative; display: table; margin: auto; width: 30%;'>
+                <img class='img-fluid' style='display: table; margin:auto;' src='/images/burger.png' alt='burger'>
+                <img style='position: absolute; width: 70%; bottom: 25%; left: 15%' src='/images/logo.png' alt='logo'>
+            </div>
+        </div>
+    </div>
+        <div class='row'>
+            <div class='col'>
+                <h4 class='text-center' style='text-decoration: underline;'>Boygas Ta Eat</h4>
+                <div style='display: table; margin: auto;'>
+                    <ol>
+                        {{#each burgers}}
+                        {{#unless devoured}}
+                        <li>{{burger_name}} <button class="devour-burger" data-id="{{id}}">Nom Nom!</button>
+                        </li>
+                        {{/unless}}
+                        {{/each}}
+                    </ol>
+                </div>
+            </div>
+            <div class='col' style='text-align: center; padding-top: 10px;'>
+                <form class="insert-form">
+
+                    <div class="form-group">
+                        <label for="bn">Boyga Name:</label>
+                        <input type="text" id="bn" name="burger_name">
+                    </div>
+
+                    <button id='add-burger' type='submit' style='width: 100%;'>Make Boyga</button>
+                </form>
+            </div>
+            <div class='col'>
+                <h4 class='text-center' style='text-decoration: underline;'>Da Eat'n Boygas</h4>
+                <div style='display: table; margin: auto'>
+                    <ol>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <li>{{burger_name}}</li>
+                        {{/if}}
+                        {{/each}}
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-box" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">No Burger</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-message" style="background-color: red; color: white;">Please enter a
+                    burger name!</div>
+                <div class="modal-footer container-fluid">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

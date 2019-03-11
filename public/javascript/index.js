@@ -9,6 +9,8 @@ $('#add-burger').on('click', function(event) {
             location.reload();
         });
     } else {
+        $('#modal-title').text('No Boyga Name');
+        $('#modal-message').text('Please enter a name for the boyga!');
         $('#modal-box').modal();
     }
 });
@@ -16,9 +18,18 @@ $('#add-burger').on('click', function(event) {
 $('.devour-burger').on('click', function(event) {
     event.preventDefault();
 
-    $.ajax('/api/burgers/' + $(this).data('id'), {
-        type: 'PUT'
-    }).then(function(response) {
-        location.reload();
-    });
+    var name = $('#burger' + $(this).data('id')).val().trim();
+
+    if (name == '') {
+        $('#modal-title').text('No Customer Name');
+        $('#modal-message').text('Please enter a customer name!');
+        $('#modal-box').modal();
+    } else {
+        $.ajax('/api/burgers/' + $(this).data('id'), {
+            type: 'PUT',
+            data: { customer_name: name }
+        }).then(function(response) {
+            location.reload();
+        });
+    }
 });

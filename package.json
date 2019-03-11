@@ -1,0 +1,27 @@
+{
+    "name": "sequelizedBurger",
+    "version": "1.0.0",
+    "description": "Eat-da-Boyga is a rather useless app created to demonstrate MVC and ORM design with deployment to Heroku using a SQL database via JawsDB.",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Milleniyum/sequelizedBurger.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Milleniyum/sequelizedBurger/issues"
+    },
+    "homepage": "https://github.com/Milleniyum/sequelizedBurger#readme",
+    "dependencies": {
+        "express": "^4.16.4",
+        "express-handlebars": "^3.0.2",
+        "mysql2": "^1.6.5",
+        "sequelize": "^4.43.0"
+    }
+}
